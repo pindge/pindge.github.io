@@ -1,0 +1,115 @@
+[200~<!DOCTYPE html>
+
+
+<head>
+
+</head>
+
+ 
+
+
+ 
+
+                     input::-webkit-inner-spin-button {
+
+		           -webkit-appearance: none;
+
+			   }
+
+
+			                        }
+						 
+
+						                     input {
+
+								                          float: right;
+
+											                       }
+
+													        
+													       </style>
+
+
+													             <body>
+
+															      
+
+															           <div>Commission Calculator</div>
+
+																         <div> Monday <input id="Mon" type="number" onkeydown="FocusNext()" onkeyup="Calc()" autofocus></div>
+
+																	       <div> Tuesday <input id="Tue" type="number" onkeyup="Calc()" ></div>
+
+																	             <div> Wednesday <input id="Wed" type="number" onkeyup="Calc()" ></div>
+
+																		           <div> Thursday <input id="Thu" type="number" onkeyup="Calc()"></div>
+
+																			         <div> Friday <input id="Fri" type="number"  onkeyup="Calc()"></div>
+
+																				       <div id="Showme"> Total <input id="total"  disabled></div>
+
+																				             <button onclick="window.location.reload()">Refresh </button>
+
+	<script>
+
+		 
+		     
+
+		 
+
+		                                    function Calc() {
+							                                        var Mon = document.getElementById("Mon").value;
+
+							                                        var Tue = document.getElementById("Tue").value;
+
+							                                        var Wed = document.getElementById("Wed").value;
+
+							                                        var Thu = document.getElementById("Thu").value;
+							                                        var Fri = document.getElementById("Fri").value;
+
+							                                       
+							     
+
+							                                        if(Mon == ''){Mon = 0};
+
+							                                        if(Tue == ''){Tue = 0};
+
+							                                        if(Wed == ''){Wed = 0};
+							                                        if(Thu == ''){Thu = 0};
+
+							                                        if(Fri == ''){Fri = 0};
+
+
+							                                        var totalComm = parseFloat(Mon)+parseFloat(Tue)+parseFloat(Wed)+parseFloat(Thu)+parseFloat(Fri);
+
+							                                                                                    
+
+							                                        document.getElementById("total").value = totalComm ;
+
+							                                        }
+
+                    
+
+ 
+
+                     </script>
+
+		      
+
+		      
+
+		      
+
+		      
+
+		      
+
+		           </body>
+
+			    
+
+			    
+
+			    
+
+			   </html>
