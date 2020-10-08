@@ -1,115 +1,51 @@
-[200~<!DOCTYPE html>
-
+<!DOCTYPE html>
 
 <head>
-
 </head>
+<style>
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    
+    input {
+        float: right;
+    }
+</style>
 
- 
+<body>
+    <div>Commission Calculator</div>
+    <div> Monday <input type="number" autofocus></div>
+    <div> Tuesday <input type="number"></div>
+    <div> Wednesday <input type="number"></div>
+    <div> Thursday <input type="number"></div>
+    <div> Friday <input type="number"></div>
+    <div id="Showme"> Total <input id="total" disabled></div>
+    <button onclick="window.location.reload()">Refresh </button>
+    <script>
+        var inputEle = document.querySelectorAll('input[type=number]');
 
+        for (let i = 0; i < inputEle.length; i++) {
+            inputEle[i].value = 0;
+            inputEle[i].addEventListener("keydown", function(event) {
 
- 
-
-                     input::-webkit-inner-spin-button {
-
-		           -webkit-appearance: none;
-
-			   }
-
-
-			                        }
-						 
-
-						                     input {
-
-								                          float: right;
-
-											                       }
-
-													        
-													       </style>
-
-
-													             <body>
-
-															      
-
-															           <div>Commission Calculator</div>
-
-																         <div> Monday <input id="Mon" type="number" onkeydown="FocusNext()" onkeyup="Calc()" autofocus></div>
-
-																	       <div> Tuesday <input id="Tue" type="number" onkeyup="Calc()" ></div>
-
-																	             <div> Wednesday <input id="Wed" type="number" onkeyup="Calc()" ></div>
-
-																		           <div> Thursday <input id="Thu" type="number" onkeyup="Calc()"></div>
-
-																			         <div> Friday <input id="Fri" type="number"  onkeyup="Calc()"></div>
-
-																				       <div id="Showme"> Total <input id="total"  disabled></div>
-
-																				             <button onclick="window.location.reload()">Refresh </button>
-
-	<script>
-
-		 
-		     
-
-		 
-
-		                                    function Calc() {
-							                                        var Mon = document.getElementById("Mon").value;
-
-							                                        var Tue = document.getElementById("Tue").value;
-
-							                                        var Wed = document.getElementById("Wed").value;
-
-							                                        var Thu = document.getElementById("Thu").value;
-							                                        var Fri = document.getElementById("Fri").value;
-
-							                                       
-							     
-
-							                                        if(Mon == ''){Mon = 0};
-
-							                                        if(Tue == ''){Tue = 0};
-
-							                                        if(Wed == ''){Wed = 0};
-							                                        if(Thu == ''){Thu = 0};
-
-							                                        if(Fri == ''){Fri = 0};
+                calc(event, i);
 
 
-							                                        var totalComm = parseFloat(Mon)+parseFloat(Tue)+parseFloat(Wed)+parseFloat(Thu)+parseFloat(Fri);
+            });
+        }
 
-							                                                                                    
+        function calc(event, eleIndex) {
+            var totalcomm = 0;
+            for (let ele = 0; ele < inputEle.length; ele++) {
+                totalcomm += parseInt(inputEle[ele].value) || 0;
+            }
+            document.getElementById("total").value = totalcomm;
+            if (event.keyCode == 13 || event.which == 13 || event.key == 'Enter') {
+                var next = Math.min(eleIndex + 1, inputEle.length - 1);
+                inputEle[next].focus();
+            }
+        }
+    </script>
+</body>
 
-							                                        document.getElementById("total").value = totalComm ;
-
-							                                        }
-
-                    
-
- 
-
-                     </script>
-
-		      
-
-		      
-
-		      
-
-		      
-
-		      
-
-		           </body>
-
-			    
-
-			    
-
-			    
-
-			   </html>
+</html>
